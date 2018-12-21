@@ -1,0 +1,16 @@
+.row.justify-content-center
+  .col-9
+    %h1.text-center
+      = @room.title + " room"
+    - if current_user
+      #messages{"data-room-id" => @room.id}
+        = render @room.messages
+      
+      = form_with url: "#", html: {id: "new_message", autocomplete: "off"} do |f|
+        .input-group.mb-3
+          = f.text_field :body, id: "message_body", class: "form-control", placeholder: "Message text..."
+          .input-group-append
+            = f.submit "Send", class: "btn btn-primary send-message-btn"
+    - else
+      %p.text-center
+        = link_to "You must login to see and send messages", new_user_registration_path

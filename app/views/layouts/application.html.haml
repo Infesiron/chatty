@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    - if current_user
+      %meta{name: "current_user", data: {id: current_user.id}}
+    %title Chatty
+    = csrf_meta_tags
+    = csp_meta_tag
+    = action_cable_meta_tag
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  %body
+    = render "layouts/navbar"
+    .container
+      %p.notice= notice
+      %p.alert= alert
+      = yield

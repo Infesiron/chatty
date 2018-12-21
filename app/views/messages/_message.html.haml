@@ -1,0 +1,6 @@
+.message-container
+  %time.time
+    = message_date_time(message)
+  = image_tag user_avatar(message), alt: "current user avatar", class: 'user-avatar'
+  %p.message-body
+    = message.body
