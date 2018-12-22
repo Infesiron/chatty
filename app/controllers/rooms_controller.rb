@@ -3,7 +3,11 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   def index
-    @rooms = Room.all
+    if current_user && current_user.admin?
+      @rooms = Room.all
+    else
+      @rooms = Room.visible
+    end
   end
 
   def new
@@ -21,7 +25,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    
+    ensure_admin if @room.hidden? && current_user
   end
 
   def edit
