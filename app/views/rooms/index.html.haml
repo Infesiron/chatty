@@ -1,3 +1,13 @@
-%h1.text-center
+%h2.text-center
   Chat rooms:
-= render @rooms
+.row.justify-content-center
+  .col-6
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th Title
+          - if current_user && current_user.admin?
+            %th Is hidden?
+            %th Actions
+      %tbody
+      = render @rooms

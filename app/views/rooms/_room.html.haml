@@ -1,6 +1,10 @@
-.room
-  %h3
+%tr.room
+  %td
     = link_to room.title, room_path(room)
-    - if current_user && current_user.admin?
+  - if current_user && current_user.admin?
+    %td
+      = human_boolean(room.hidden?)
+    %td
       = link_to "Edit", edit_room_path(room)
+      |
       = link_to "Delete", room_path(room), method: :delete
