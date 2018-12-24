@@ -1,4 +1,4 @@
 = simple_form_for @room do |f|
-  = f.input :title
+  = f.input :title, as: :string
   = f.input :hidden
-  = f.submit
+  = f.button :submit, submit_btn_text(@room), class: "btn btn-primary"

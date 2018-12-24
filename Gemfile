@@ -37,6 +37,7 @@ gem 'hamlit'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
 gem 'simple_form'
+gem 'devise-bootstrap-views', '~> 1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
