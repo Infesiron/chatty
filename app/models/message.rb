@@ -1,4 +1,5 @@
 class Message < ApplicationRecord
+  default_scope { order(created_at: :desc).limit(50) }
   validates :body, presence: true
   
   belongs_to :user
