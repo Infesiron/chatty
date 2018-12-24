@@ -1,6 +1,7 @@
 %nav.navbar.navbar-expand-md.navbar-light.bg-light
   .container
-    = link_to "Chatty", root_path, class: "navbar-brand"
+    = link_to root_path, class: "navbar-brand" do
+      = image_tag "logo.svg", alt: 'logo', class: 'logo'
     %button.navbar-toggler{"aria-controls" => "navbarNavDropdown", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavDropdown", "data-toggle" => "collapse", type: "button"}
       %span.navbar-toggler-icon
     #navbarNavDropdown.collapse.navbar-collapse
