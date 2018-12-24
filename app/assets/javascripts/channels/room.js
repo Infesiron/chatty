@@ -18,14 +18,9 @@ function registerRoomConnection(room_id) {
     received: function(data) {
       $('#message_body').val('');
   
-      let current_user_id = $('meta[name=current_user').data('id');
       let messages = $('#messages');
       let message = $($.parseHTML(data['message']));
   
-      if (current_user_id !== undefined && current_user_id == data['user_id']) {
-        message.addClass('current-user-message');
-        message.find('.user-sender').text('You:')
-      }
       messages.append(message);
       scrollToNewMessages(messages);
     },

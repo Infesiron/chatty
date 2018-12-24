@@ -1,12 +1,6 @@
 module MessagesHelper
   def user_name(message)
-    message.user.email.split('@')[0].capitalize
-  end
-
-  def user_avatar(message)
-    hash = Digest::MD5::hexdigest(message.user.email)
-
-    "https://www.gravatar.com/avatar/#{hash}"
+    "@" + message.user.email.split('@')[0]
   end
 
   def message_date_time(message)
