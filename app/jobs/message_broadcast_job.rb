@@ -15,6 +15,6 @@ class MessageBroadcastJob < ApplicationJob
     MessagesController.render(
       partial: "messages/message",
       locals: { message: message }
-    ) 
+    )
   end
 end
