@@ -3,10 +3,10 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   def index
-    if current_user && current_user.admin?
-      @rooms = Room.all
+    if current_user.try(:admin?)
+      @rooms = Room.page params[:page]
     else
-      @rooms = Room.visible
+      @rooms = Room.visible.page params[:page]
     end
   end
 
@@ -28,9 +28,7 @@ class RoomsController < ApplicationController
     ensure_admin if @room.hidden? && current_user
   end
 
-  def edit
-    
-  end
+  def edit;  end
 
   def update
     if @room.update(room_params)

@@ -6,8 +6,10 @@
       %thead
         %tr
           %th Title
-          - if current_user && current_user.admin?
+          - if current_user.try(:admin?)
             %th Is hidden?
             %th Actions
       %tbody
       = render @rooms
+.row.justify-content-center
+  = paginate @rooms
